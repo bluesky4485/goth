@@ -32,6 +32,7 @@ import (
 	"github.com/markbates/goth/providers/google"
 	"github.com/markbates/goth/providers/gplus"
 	"github.com/markbates/goth/providers/heroku"
+	"github.com/markbates/goth/providers/huizhi"
 	"github.com/markbates/goth/providers/instagram"
 	"github.com/markbates/goth/providers/intercom"
 	"github.com/markbates/goth/providers/kakao"
@@ -75,6 +76,8 @@ import (
 
 func main() {
 	goth.UseProviders(
+		huizhi.New("SBwZ5hVLWyaWI3qxr2mx", "2moznrWhY7uxGYTnvrdBMy4AJwPSZI4k6eHMHRm4", "http://localhost:3000/auth/uniuser/callback"),
+
 		// Use twitterv2 instead of twitter if you only have access to the Essential API Level
 		// the twitter provider uses a v1.1 API that is not available to the Essential Level
 		twitterv2.New(os.Getenv("TWITTER_KEY"), os.Getenv("TWITTER_SECRET"), "http://localhost:3000/auth/twitterv2/callback"),
@@ -160,6 +163,7 @@ func main() {
 	}
 
 	m := map[string]string{
+		"uniuser":         "Uniuser",
 		"amazon":          "Amazon",
 		"apple":           "Apple",
 		"auth0":           "Auth0",
