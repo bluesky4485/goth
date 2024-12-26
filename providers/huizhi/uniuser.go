@@ -163,6 +163,7 @@ func userFromReader(r io.Reader, user *goth.User) error {
 		NickName  string `json:"userName"`
 		Name      string `json:"nickName"`
 		AvatarURL string `json:"avatar"`
+		Email     string `json:"email"`
 	}{}
 
 	err := json.NewDecoder(r).Decode(&u)
@@ -174,7 +175,7 @@ func userFromReader(r io.Reader, user *goth.User) error {
 	user.NickName = u.NickName
 	user.Name = u.Name
 	user.AvatarURL = u.AvatarURL
-	user.Email = ""
+	user.Email = u.Email
 	user.RawData = nil
 
 	return nil
